@@ -4,34 +4,7 @@ import os
 import hashlib
 import random
 from typing import List, Dict, Any
-# Custom CSS to hide the HEADER TOOLBAR and the FLOATING FOOTER ICON, 
-# while PRESERVING the Sidebar (if present).
-hide_streamlit_style = """
-<style>
-/* 1. Hides the header container (where 'Fork', three-dot menu, etc. live) */
-/* This targets the element specifically by its data-testid, which is highly reliable. */
-div[data-testid="stToolbar"] {
-    visibility: hidden;
-    height: 0px;
-    position: absolute; 
-}
 
-/* 2. Hides the 'Made with Streamlit' text in the footer */
-footer {
-    visibility: hidden;
-    height: 0px;
-}
-
-/* 3. Hides the floating feedback/deploy icon (Green/White, bottom right corner) */
-/* Targets the container that holds the button link */
-.st-emotion-cache-1dp9v1o,
-.stActionButton { 
-    display: none !important;
-}
-
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 # -------------------- CONFIG --------------------
 DB_FILE = "/mnt/data/users.json"
 RECHARGE_FILE = "/mnt/data/recharge_history.json"
@@ -492,6 +465,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
