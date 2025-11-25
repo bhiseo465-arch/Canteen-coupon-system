@@ -4,43 +4,31 @@ import os
 import hashlib
 import random
 from typing import List, Dict, Any
-# Custom CSS to hide the header menu and the floating footer icon
+# Custom CSS to hide the HEADER TOOLBAR and the FLOATING FOOTER ICON, 
+# while PRESERVING the Sidebar (if present).
 hide_streamlit_style = """
 <style>
 /* 1. Hides the header container (where 'Fork', three-dot menu, etc. live) */
-/* Targets the element with role 'toolbar' */
+/* This targets the element specifically by its data-testid, which is highly reliable. */
 div[data-testid="stToolbar"] {
     visibility: hidden;
     height: 0px;
-    position: absolute; /* Ensures it doesn't take up space */
+    position: absolute; 
 }
 
-/* 2. Hides the 'Made with Streamlit' footer text */
+/* 2. Hides the 'Made with Streamlit' text in the footer */
 footer {
     visibility: hidden;
     height: 0px;
 }
 
-/* 3. Hides the floating footer icon (Green/White, bottom right corner) */
+/* 3. Hides the floating feedback/deploy icon (Green/White, bottom right corner) */
 /* Targets the container that holds the button link */
-.st-emotion-cache-1dp9v1o { /* Common Streamlit class for this button's container */
-    display: none !important;
-}
-/* Another attempt using a different common identifier for that button */
-.stActionButton {
-    display: none !important;
-}
-/* If the icon is part of a link (anchor tag) */
-a[href="https://streamlit.io"] {
+.st-emotion-cache-1dp9v1o,
+.stActionButton { 
     display: none !important;
 }
 
-/* 4. Hides the main header element completely */
-header {
-    visibility: hidden;
-    height: 0px;
-    position: absolute;
-}
 </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
@@ -504,6 +492,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
