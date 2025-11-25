@@ -4,31 +4,38 @@ import os
 import hashlib
 import random
 from typing import List, Dict, Any
-# Custom CSS to hide header and footer elements
+# Custom CSS to hide the header and footer elements
 hide_streamlit_style = """
 <style>
-/* Hides the 'Fork' and three-dot menu */
-.css-1kyf19x {
+/* 1. Hide the header toolbar (contains 'Fork', three-dot menu, etc.) */
+header {
+    visibility: hidden;
+    height: 0px; /* Ensure it takes up no space */
+}
+
+/* 2. Hide the main Streamlit footer "Made with Streamlit" text */
+footer {
+    visibility: hidden;
+    height: 0px; /* Ensure it takes up no space */
+}
+
+/* 3. Hide the floating deploy/feedback button (green/white icon in the bottom right) */
+/* The specific class might change, so we target a common parent/container */
+.css-1dp9v1o { /* This was the previous selector for the icon */
+    display: none !important;
+}
+.stActionButton { /* New attempt to target the floating button */
+    display: none !important;
+}
+.st-emotion-cache-1dp9v1o { /* Another common selector for the floating icon container */
+    display: none !important;
+}
+.st-emotion-cache-1dp9v1o a { /* Target the anchor tag inside the container */
     display: none !important;
 }
 
-/* Hides the 'Fork' and three-dot menu (alternative/additional selector) */
-.css-1av0vzn {
-    visibility: hidden;
-}
-
-/* Hides the 'Made with Streamlit' footer badge */
-footer {
-    visibility: hidden;
-}
-
-/* Hides the header toolbar (where 'Fork' and three-dot menu live) */
-header {
-    visibility: hidden;
-}
-
-/* Targets the specific floating footer icon in the bottom right (the green/white icon) */
-.css-1dp9v1o {
+/* 4. Fallback/Alternative to hide the three-dot menu, just in case */
+.st-emotion-cache-z62y6k { /* Common selector for the menu container */
     display: none !important;
 }
 
@@ -495,6 +502,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
