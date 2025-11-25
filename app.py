@@ -5,22 +5,19 @@ import hashlib
 import random
 from typing import List, Dict, Any
 
-hide_streamlit_style = """
-    <style>
-    /* Hide Streamlit MainMenu (hamburger) */
-    #MainMenu {visibility: hidden;}
-
-    /* Hide Streamlit footer */
-    footer {visibility: hidden;}
-
-    /* Hide only the top bar logo */
-    [data-testid="stToolbar"] {visibility: hidden;}
-
-    /* OPTIONAL: remove extra top space */
-    header {height: 0px;}
-    </style>
+hide_everything = """
+<style>
+[data-testid="stToolbar"] {visibility: hidden !important;}
+[data-testid="stDecoration"] {visibility: hidden !important;}
+[data-testid="stActionButton"] {visibility: hidden !important;}
+.stDeployButton {display: none !important;}
+[data-testid="stStatusWidget"] {display: none !important;}
+img[alt="Streamlit"] {display: none !important;}
+button[title="View app in Streamlit Community Cloud"] {display: none !important;}
+</style>
 """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+st.markdown(hide_everything, unsafe_allow_html=True)
+
 
 
 # -------------------- CONFIG --------------------
@@ -483,6 +480,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
