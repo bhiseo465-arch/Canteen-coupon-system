@@ -5,37 +5,6 @@ import hashlib
 import random
 from typing import List, Dict, Any
 
-hide_footer_badges = """
-<style>
-/* Hide Streamlit footer */
-footer {visibility: hidden !important;}
-
-/* Hide 'Created by Streamlit' text */
-footer div {display: none !important;}
-footer::before {display: none !important;}
-
-/* Hide 'Hosted on Streamlit' badge */
-[data-testid="stFooter"] {display: none !important;}
-
-/* Extra: Hide deep Streamlit footer containers */
-section[data-testid="stSidebar"] + section div[role="contentinfo"] {
-    display: none !important;
-}
-
-/* New Streamlit cloud footer hiding */
-[data-testid="stAppViewContainer"] footer {
-    visibility: hidden !important;
-    display: none !important;
-}
-
-/* Kill any img inside footer (Streamlit logos) */
-footer img {display: none !important;}
-</style>
-"""
-st.markdown(hide_footer_badges, unsafe_allow_html=True)
-
-
-
 # -------------------- CONFIG --------------------
 DB_FILE = "/mnt/data/users.json"
 RECHARGE_FILE = "/mnt/data/recharge_history.json"
@@ -496,6 +465,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
