@@ -6,10 +6,10 @@ import random
 from typing import List, Dict, Any
 DATA_DIR = "data"
 os.makedirs(DATA_DIR, exist_ok=True)
-# -------------------- CONFIG --------------------
-DB_FILE = "/mnt/data/users.json"
-RECHARGE_FILE = "/mnt/data/recharge_history.json"
-TRANSACTION_FILE = "/mnt/data/transactions.json"
+
+DB_FILE = os.path.join(DATA_DIR, "users.json")
+TRANSACTION_FILE = os.path.join(DATA_DIR, "transactions.json")
+RECHARGE_FILE = os.path.join(DATA_DIR, "recharge_history.json")
 
 # -------------------- UTILITIES --------------------
 
@@ -466,6 +466,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
