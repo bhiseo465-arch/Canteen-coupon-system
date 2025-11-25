@@ -5,6 +5,15 @@ import hashlib
 import random
 from typing import List, Dict, Any
 
+# REMOVE STREAMLIT UI
+hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # -------------------- CONFIG --------------------
 DB_FILE = "/mnt/data/users.json"
@@ -466,6 +475,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
