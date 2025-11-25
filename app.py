@@ -4,7 +4,8 @@ import os
 import hashlib
 import random
 from typing import List, Dict, Any
-
+DATA_DIR = "data"
+os.makedirs(DATA_DIR, exist_ok=True)
 # -------------------- CONFIG --------------------
 DB_FILE = "/mnt/data/users.json"
 RECHARGE_FILE = "/mnt/data/recharge_history.json"
@@ -465,6 +466,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
