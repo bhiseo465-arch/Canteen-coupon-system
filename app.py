@@ -5,15 +5,23 @@ import hashlib
 import random
 from typing import List, Dict, Any
 
-# REMOVE STREAMLIT UI
 hide_streamlit_style = """
     <style>
+    /* Hide Streamlit MainMenu (hamburger) */
     #MainMenu {visibility: hidden;}
+
+    /* Hide Streamlit footer */
     footer {visibility: hidden;}
-    header {visibility: hidden;}
+
+    /* Hide only the top bar logo */
+    [data-testid="stToolbar"] {visibility: hidden;}
+
+    /* OPTIONAL: remove extra top space */
+    header {height: 0px;}
     </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 
 # -------------------- CONFIG --------------------
 DB_FILE = "/mnt/data/users.json"
@@ -475,6 +483,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
