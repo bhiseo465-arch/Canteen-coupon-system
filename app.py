@@ -4,7 +4,37 @@ import os
 import hashlib
 import random
 from typing import List, Dict, Any
+# Custom CSS to hide header and footer elements
+hide_streamlit_style = """
+<style>
+/* Hides the 'Fork' and three-dot menu */
+.css-1kyf19x {
+    display: none !important;
+}
 
+/* Hides the 'Fork' and three-dot menu (alternative/additional selector) */
+.css-1av0vzn {
+    visibility: hidden;
+}
+
+/* Hides the 'Made with Streamlit' footer badge */
+footer {
+    visibility: hidden;
+}
+
+/* Hides the header toolbar (where 'Fork' and three-dot menu live) */
+header {
+    visibility: hidden;
+}
+
+/* Targets the specific floating footer icon in the bottom right (the green/white icon) */
+.css-1dp9v1o {
+    display: none !important;
+}
+
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 # -------------------- CONFIG --------------------
 DB_FILE = "/mnt/data/users.json"
 RECHARGE_FILE = "/mnt/data/recharge_history.json"
@@ -465,6 +495,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
