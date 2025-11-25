@@ -4,41 +4,43 @@ import os
 import hashlib
 import random
 from typing import List, Dict, Any
-# Custom CSS to hide the header and footer elements
+# Custom CSS to hide the header menu and the floating footer icon
 hide_streamlit_style = """
 <style>
-/* 1. Hide the header toolbar (contains 'Fork', three-dot menu, etc.) */
-header {
+/* 1. Hides the header container (where 'Fork', three-dot menu, etc. live) */
+/* Targets the element with role 'toolbar' */
+div[data-testid="stToolbar"] {
     visibility: hidden;
-    height: 0px; /* Ensure it takes up no space */
+    height: 0px;
+    position: absolute; /* Ensures it doesn't take up space */
 }
 
-/* 2. Hide the main Streamlit footer "Made with Streamlit" text */
+/* 2. Hides the 'Made with Streamlit' footer text */
 footer {
     visibility: hidden;
-    height: 0px; /* Ensure it takes up no space */
+    height: 0px;
 }
 
-/* 3. Hide the floating deploy/feedback button (green/white icon in the bottom right) */
-/* The specific class might change, so we target a common parent/container */
-.css-1dp9v1o { /* This was the previous selector for the icon */
+/* 3. Hides the floating footer icon (Green/White, bottom right corner) */
+/* Targets the container that holds the button link */
+.st-emotion-cache-1dp9v1o { /* Common Streamlit class for this button's container */
     display: none !important;
 }
-.stActionButton { /* New attempt to target the floating button */
+/* Another attempt using a different common identifier for that button */
+.stActionButton {
     display: none !important;
 }
-.st-emotion-cache-1dp9v1o { /* Another common selector for the floating icon container */
-    display: none !important;
-}
-.st-emotion-cache-1dp9v1o a { /* Target the anchor tag inside the container */
-    display: none !important;
-}
-
-/* 4. Fallback/Alternative to hide the three-dot menu, just in case */
-.st-emotion-cache-z62y6k { /* Common selector for the menu container */
+/* If the icon is part of a link (anchor tag) */
+a[href="https://streamlit.io"] {
     display: none !important;
 }
 
+/* 4. Hides the main header element completely */
+header {
+    visibility: hidden;
+    height: 0px;
+    position: absolute;
+}
 </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
@@ -502,6 +504,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
