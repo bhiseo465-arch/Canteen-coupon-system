@@ -4,6 +4,11 @@ import os
 import hashlib
 import random
 from typing import List, Dict, Any
+st.set_page_config(
+    page_title="Canteen Coupon System",
+    page_icon="🍽️",  
+    layout="wide"
+)
 DATA_DIR = "data"
 os.makedirs(DATA_DIR, exist_ok=True)
 
@@ -466,6 +471,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
